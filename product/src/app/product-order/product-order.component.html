@@ -1,0 +1,17 @@
+<div *ngFor="let order of orderHistory" class="order-details">
+    <h2>Order Confirmation</h2>
+    <p><strong>Customer ID:</strong> {{ order.customerId }}</p>
+    <p><strong>Shipping Address:</strong> {{ order.ship }}</p>
+    <p><strong>Payment Mode:</strong> {{ order.pay }}</p>
+    <p><strong>Delivery Option:</strong> {{ order.pick }}</p>
+  
+    <h3>Items Ordered:</h3>
+    <ul>
+      <li *ngFor="let item of order.items">
+        <p><strong>Product:</strong> {{ item.productName }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Price:</strong> {{ "$" + (item.price * item.quantity) }}</p>
+      </li>
+    </ul>
+  </div>
+  

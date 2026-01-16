@@ -1,0 +1,15 @@
+footer {
+    height: 75px; /* Adjust height as needed */
+    font-size: 18px; 
+    font-weight: bold; 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  footer:hover {
+    text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00; 
+    text-decoration: none; 
+  }
+    

@@ -1,0 +1,68 @@
+/* Order Details Container */
+.order-details {
+  padding: 20px;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Playfair Display', serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header for Order Confirmation */
+.order-details h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px #ff8c00;
+}
+
+/* Order Info Text Styling */
+.order-details p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f9eeae;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  text-shadow: 1px 1px 4px #ff8c00;
+}
+
+/* Section Headers within Order Details */
+.order-details h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  text-shadow: 1px 1px 4px #ff8c00;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Item List in Order Confirmation */
+.order-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-details ul li {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 140, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.order-details ul li p {
+  color: #f9eeae;
+  font-size: 14px;
+  margin: 5px 0;
+  text-shadow: 1px 1px 4px #ff8c00;
+}

@@ -1,0 +1,100 @@
+<!-- Display error message if there is one -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Display products if available, otherwise show a "no products" message -->
+<div *ngIf="products.length > 0; else noProducts">
+  <div *ngIf="productsCategory.length > 0">
+    <h2>Products in Category: {{ productsCategory[0].categoryName }}</h2>
+  </div>
+  <div class="products-container">
+    <div *ngFor="let product of products" class="product-item">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <img
+        class="product-image"
+        [src]="'assets/products/' + product.imageFile + '.png'"
+        alt="{{ product.name }}"
+      />
+      <h5>{{ product.categoryName }} Available: {{ product.quantityStock }}</h5>
+      <div class="product-actions">
+        <button
+          (click)="addToCart(product)"
+          [disabled]="product.quantityStock < 1">
+          {{ product.price | currency }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Template for when no products are available in the category -->
+<ng-template #noProducts>
+  <p class="no-products-message"></p>
+</ng-template>
+
+<!-- Conditionally display the form only if there is no error message -->
+<div class="add-product-toggle" *ngIf="customerId">
+  <button (click)="toggleForm()">
+    {{ isFormOpen ? 'Close' : 'Add New Product' }}
+  </button>
+</div>
+
+<div class="form-overlay" *ngIf="isFormOpen" (click)="closeForm()">
+  <div class="form-section" (click)="$event.stopPropagation()">
+  <div class="container product-form">
+  <h2>New Product Form</h2>
+  <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <input
+      type="text"
+      placeholder="Name"
+      [(ngModel)]="newProduct.name"
+      name="name"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Category"
+      [(ngModel)]="newProduct.categoryName"
+      name="categoryName"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Description"
+      [(ngModel)]="newProduct.description"
+      name="description"
+    />
+    <input
+      type="text"
+      placeholder="Unit of Measure"
+      [(ngModel)]="newProduct.unitOfMeasure"
+      name="unitOfMeasure"
+    />
+    <input
+      type="text"
+      placeholder="Image File"
+      [(ngModel)]="newProduct.imageFile"
+      name="imageFile"
+    />
+    <input
+      type="number"
+      placeholder="Price"
+      [(ngModel)]="newProduct.price"
+      name="price"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Quantity in Stock"
+      [(ngModel)]="newProduct.quantityStock"
+      name="quantityStock"
+      required
+      min="0"
+    />
+    <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+  </form>
+</div>
+</div>
+</div>

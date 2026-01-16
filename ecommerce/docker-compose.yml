@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  mysqldb:
+    image: mysql:8.0
+    container_name: mysqlecom1
+    environment:
+      MYSQL_ROOT_PASSWORD: your_password_here
+      MYSQL_DATABASE: ecom
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: your_password_here
+    ports:
+      - "3307:3306"
+      - "33061:33060"
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ecomnetwork
+
+  ecom1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecom_1
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/ecom?allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: your_password_here
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    networks:
+      - ecomnetwork
+
+networks:
+  ecomnetwork:
+    driver: bridge

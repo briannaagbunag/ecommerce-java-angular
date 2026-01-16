@@ -1,0 +1,429 @@
+h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px #ff8c00;
+}
+
+.cart-layout {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Cart Table Container */
+.cart-table-container {
+  flex: 2;
+  padding: 20px;
+}
+
+.cart-total-row td {
+  background-color: rgba(255, 140, 0, 0.15);
+  border-top: 2px solid rgba(255, 140, 0, 0.6);
+  padding: 14px;
+}
+
+.total-label {
+  text-align: right;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffd27d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.total-value {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffb347;
+}
+
+/* Cart Summary Container for Payment and Delivery Options */
+.cart-summary-container {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Restoring Glowing Effect for Shopping Cart and Total Cart Price */
+.cart-table-container h2, .cart-table-container h3,
+.cart-summary-container h2, .cart-summary-container p {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 2px 8px #ff8c00;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+/* Smaller, Left-Aligned Heading for Payment Mode */
+.cart-summary-container h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  text-shadow: 1px 1px 4px #ff8c00;
+  margin-bottom: 15px;
+}
+
+/* Cart Table Styles */
+.cart-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+  padding: 12px;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  text-align: center;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+.cart-table th {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  text-align: center;
+  font-size: 18px;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 4px #ff8c00;
+}
+
+.cart-table td {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cart-table td img.cart-product-img {
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Icon Button Styling (for + button) */
+.icon-button {
+  background-color: #ff8c00;
+  color: #f9eeae;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 5px;
+}
+
+.icon-button:hover {
+  background-color: #f9eeae;
+  color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00, 0 0 15px #f9eeae;
+}
+
+/* Remove Button Styling */
+.cart-table td button {
+  background-color: #ff8c00;
+  color: #f9eeae;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-table td button:hover {
+  background-color: #f9eeae;
+  color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00, 0 0 15px #f9eeae;
+}
+
+/* Cart Summary - Action Buttons Styling */
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cart-actions button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ff8c00;
+  color: #f9eeae;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-actions button:hover {
+  background-color: #f9eeae;
+  color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00, 0 0 15px #f9eeae;
+}
+
+/* Input and Select Styling for Payment Mode and Shipping Address */
+.cart-summary-container input[type="text"],
+.cart-summary-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ff8c00;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f9eeae;
+  font-family: 'Playfair Display', serif;
+  appearance: none;
+}
+
+.cart-summary-container select option {
+  color: black;
+  background-color: white;
+}
+
+/* Empty Cart Message Styling */
+.empty-cart-message p {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 2px 8px #ff8c00;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #ff4d4d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 1px 6px black;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 850;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-toggle {
+  margin: 50px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-toggle button {
+  width: auto;               /* ⬅ stops full-width */
+  min-width: 220px;
+
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+
+  border-radius: 8px;
+
+  box-shadow: 0 6px 18px rgba(255, 140, 0, 0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.checkout-form h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #ffd27d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  font-size: 14px;
+  color: rgba(249, 238, 174, 0.9);
+}
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 12px;
+
+  animation: formIn 0.25s ease-out;
+}
+
+@keyframes formIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: 'Playfair Display', serif;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Close Button */
+.modal-content .close {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff8c00;
+  cursor: pointer;
+  float: right;
+}
+
+.modal-content .close:hover {
+  color: #f9eeae;
+}
+
+/* Invoice Header */
+.modal-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f9eeae;
+  text-shadow: 2px 2px 8px #ff8c00;
+  margin-bottom: 20px;
+}
+
+/* Invoice Details */
+.modal-content p {
+  color: #f9eeae;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  text-shadow: 1px 1px 4px #ff8c00;
+}
+
+.modal-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  text-shadow: 1px 1px 4px #ff8c00;
+  margin: 10px 0;
+}
+
+/* Success and Error Messages */
+.modal-success-message p {
+  color: #00c851;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-error-message p {
+  color: #ff4d4d;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Confirm and Cancel Buttons */
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  background-color: #ff8c00;
+  color: #f9eeae;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #f9eeae;
+  color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00, 0 0 15px #f9eeae;
+}

@@ -1,0 +1,64 @@
+// INSERT PRODUCT
+PUT: http://localhost:8080/api/product
+{
+    "name": "new",
+    "description": "this is product",
+    "categoryName": "asdasdads",
+    "imageFile": "asd",
+    "unitOfMeasure": "asdasd",
+    "price": "100.5",
+    "quantityStock": 60
+}
+
+// DIRECT ADD TO CART
+POST: http://localhost:8080/api/orders/cart/add
+{
+    "productId": 1,
+    "productName": "Gaming Mouse",
+    "imageFile": "mouse",
+    "quantity": 2,
+    "unitOfMeasure": "pcs",
+    "price": 49.99,
+    "status": "in stock"
+}
+
+// TEST: CHECKOUT IF WORKING
+POST: http://localhost:8080/api/orders/cart/checkout
+{
+  "customerId": 2,
+  "pay": "Credit Card",
+  "invoice": "Invoice123",
+  "ship": "Shipping details",
+  "pick": "Pickup details",
+  "complete": "Completed",
+  "cancel": "Not cancelled"
+}
+
+// REGISTER
+POST: http://localhost:8080/api/customers
+{
+    "customerId":5,
+    "firstname": "test2",
+    "middlename": "A",
+    "lastname": "test2",
+    "dateOfBirth": "1995-01-15",
+    "gender": "Male",
+    "username": "test123",
+    "password": "test223"
+}
+
+// LOGIN
+POST: http://localhost:8080/api/auth/login
+{
+    "username": "test2",
+    "password": "test12"
+}
+
+// CUSTOMER DATA
+GET: http://localhost:8080/api/customers/
+
+
+// TO AUTO INCREMENT customerId pag nag register ka ng account para di mo na imanual sa postman
+use ecom;
+ALTER TABLE customer_data
+MODIFY customerId INT UNIQUE AUTO_INCREMENT;

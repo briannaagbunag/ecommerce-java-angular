@@ -1,0 +1,114 @@
+.account-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid rgba(255, 140, 0, 0.5); /* Semi-transparent orange border */
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+h2 {
+  text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 4px #ff8c00;
+}
+
+p {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 5px;
+  font-size: 18px;
+  display: flex;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #f9eeae; /* Light color for labels */
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ff8c00; /* Orange border */
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #f9eeae; /* Light border on focus */
+  box-shadow: 0 0 5px #ff8c00, 0 0 10px #f9eeae;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Placeholder color specifically for Date of Birth */
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px; /* Additional margin to separate the select from the next element */
+  box-sizing: border-box;
+  border: 1px solid #ff8c00; /* Orange border */
+  border-radius: 5px;
+  color: #f9eeae; /* Match font color with other text elements */
+  font-family: 'Playfair Display', serif;
+}
+
+select option {
+  color: black; /* Black color for dropdown options to enhance readability */
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff8c00; /* Theme button color */
+  color: #f9eeae;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px; /* Add space between buttons */
+}
+
+button:not(:first-of-type) {
+  margin-top: 10px; /* Ensure margin only applies to buttons after the first */
+}
+
+
+button:hover {
+  background-color: #f9eeae;
+  color: #ff8c00;
+  box-shadow: 0 0 10px #ff8c00, 0 0 15px #f9eeae;
+}
+
+.error {
+  color: #ff4d4d; /* Error message color */
+  font-size: 12px;
+  margin-top: 5px;
+}

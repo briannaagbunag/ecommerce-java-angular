@@ -1,0 +1,138 @@
+<!-- Display error message if there is one -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Empty cart message -->
+<div *ngIf="cart.items.length === 0 && !errorMessage" class="empty-cart-message">
+  <p>Your cart is empty. Start adding products!</p>
+</div>
+
+<!-- Cart layout, displayed only if there is no error message -->
+<div class="cart-layout" *ngIf="cart.items.length > 0 && !errorMessage">
+  <!-- Left side: Cart Table and Total Price -->
+  <div class="cart-table-container">
+    <table class="cart-table">
+      <thead>
+      <tr>
+        <th>Select</th>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Unit of Measure</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let item of cart.items">
+        <td>
+          <input
+            type="checkbox"
+            [checked]="selectedItems.includes(item)"
+            (change)="toggleItemSelection(item)"
+          />
+        </td>
+        <td>
+          <img
+            [src]="'../assets/products/' + item.imageFile + '.png'"
+            alt="{{ item.productName }}"
+            class="cart-product-img"
+          />
+        </td>
+        <td>{{ item.productName }}</td>
+        <td>{{ item.description || 'No description available' }}</td>
+        <td>{{ item.categoryName || 'Category not available' }}</td>
+        <td>{{ item.unitOfMeasure }}</td>
+        <td>
+          <div *ngIf="!item.isEditing">
+            {{ item.quantity }}
+            <button class="icon-button" (click)="toggleEditMode(item)">+</button>
+          </div>
+          <div *ngIf="item.isEditing">
+            <input
+              type="number"
+              [(ngModel)]="item.quantity"
+              [max]="item.quantityStock"
+              min="1"
+              (change)="confirmUpdate(item)"
+            />
+            <button (click)="confirmUpdate(item)">OK</button>
+            <button (click)="toggleEditMode(item)">Cancel</button>
+          </div>
+        </td>
+        <td>{{ '$' + item.price }}</td>
+        <td>
+          <button (click)="removeItemFromCart(item)">Remove</button>
+        </td>
+      </tr>
+      </tbody>
+
+      <tfoot>
+      <tr class="cart-total-row">
+        <td colspan="7"></td>
+        <td class="total-label">Total</td>
+        <td class="total-value">
+          {{ '$' + cart.totalPrice }}
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Right side: Payment and Delivery Options -->
+  <div class="cart-summary-container">
+    <h3>Select Payment Mode</h3>
+    <div *ngFor="let mode of paymentModes">
+      <label>
+        <input type="radio" name="paymentMode" [(ngModel)]="selectedPaymentMode" [value]="mode" />
+        {{ mode }}
+      </label>
+    </div>
+
+    <h3>Shipping Address</h3>
+    <input type="text" [(ngModel)]="shipAddress" placeholder="Enter shipping address" />
+
+    <h3>Delivery Option</h3>
+    <select [(ngModel)]="pickOption">
+      <option *ngFor="let option of deliveryOptions" [value]="option">{{ option }}</option>
+    </select>
+
+    <!-- Action Buttons -->
+    <div class="cart-actions">
+      <button (click)="selectAllItems()">Select All</button>
+      <button (click)="deleteSelectedItems()">Delete Selected</button>
+      <button (click)="checkout()">Checkout Selected Items</button>
+    </div>
+  </div>
+</div>
+
+<!-- Invoice modal -->
+<div class="modal" *ngIf="showInvoiceModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Invoice</h2>
+    <div *ngFor="let item of selectedItems">
+      <p>
+        Product: {{ item.productName }} | Quantity: {{ item.quantity }} <br />
+      </p>
+    </div>
+    <h3>Total Amount Due: {{ cart.totalPrice | currency }}</h3>
+    <h3>Payment Mode: {{ selectedPaymentMode }}</h3>
+    <h3>Shipping Address: {{ shipAddress }}</h3>
+    <h3>Delivery Option: {{ pickOption }}</h3>
+    <div *ngIf="paymentSuccessful === true" class="modal-success-message">
+      <p>Thank you for your purchase! Your order has been successfully placed.</p>
+    </div>
+    <div *ngIf="paymentSuccessful === false" class="modal-error-message">
+      <p>Payment failed. Please try a different payment method.</p>
+    </div>
+    <div *ngIf="paymentSuccessful === null">
+      <button (click)="confirmCheckout()">Confirm Purchase</button>
+      <button (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
