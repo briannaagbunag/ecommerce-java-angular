@@ -130,4 +130,18 @@ public class CustomerController {
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("No active session");
     }
+
+    // Get purchased orders for a customer
+    @GetMapping("/api/customers/{customerId}/orders")
+    public ResponseEntity<?> getCustomerOrders(@PathVariable int customerId) {
+        try {
+            List<Order> orders = orderService.getPurchasedOrdersByCustomerId(customerId);
+            return ResponseEntity.ok(orders);
+        } catch (Exception ex) {
+            log.error("Failed to retrieve orders for customer {}", customerId, ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to retrieve customer orders");
+        }
+    }
+
 }

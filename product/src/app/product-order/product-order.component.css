@@ -1,24 +1,43 @@
+.error-message {
+  color: #ff4d4d; /* Bright red for error messages */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 1px 6px black; /* Orange shadow to match theme */
+  padding: 10px;
+  font-size: 15px; /* Increased font size */
+  font-weight: 850; /* Bold weight */
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Order Details Container */
 .order-details {
-  padding: 20px;
-  border: 1px solid rgba(255, 140, 0, 0.5);
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-  font-family: 'Playfair Display', serif;
-  max-width: 800px;
+  max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
+  border: 1px solid rgba(255, 140, 0, 0.5); /* Semi-transparent orange border */
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  color: white;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Header for Order Confirmation */
 .order-details h2 {
-  font-size: 18px;
+  text-align: center;
+  color: #f9eeae;
+  font-size: 26px;
   font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 4px #ff8c00;
+  margin-bottom: 20px;
+
+  /* Subtle premium glow */
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.6),
+    0 0 6px rgba(255, 200, 120, 0.35);
 }
 
 /* Order Info Text Styling */
@@ -35,29 +54,22 @@
 
 /* Section Headers within Order Details */
 .order-details h3 {
-  font-size: 20px;
+  text-align: center;
+  color: #f9eeae;
+  font-size: 26px;
   font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: left;
-  text-shadow: 1px 1px 4px #ff8c00;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
+  /* Subtle premium glow */
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.6),
+    0 0 6px rgba(255, 200, 120, 0.35);
 }
 
 /* Item List in Order Confirmation */
 .order-details ul {
   list-style: none;
   padding: 0;
-}
-
-.order-details ul li {
-  padding: 10px;
-  border-bottom: 1px solid rgba(255, 140, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 .order-details ul li p {

@@ -11,10 +11,9 @@ public class CustomerData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    int id; // INTERNAL DB PK
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int customerId;
-
+    int customerId; // PUBLIC / BUSINESS ID
 
     String firstname;
     String middlename;

@@ -1,10 +1,15 @@
+<!-- Display error message if there is one -->
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
 <div *ngFor="let order of orderHistory" class="order-details">
     <h2>Order Confirmation</h2>
     <p><strong>Customer ID:</strong> {{ order.customerId }}</p>
     <p><strong>Shipping Address:</strong> {{ order.ship }}</p>
     <p><strong>Payment Mode:</strong> {{ order.pay }}</p>
     <p><strong>Delivery Option:</strong> {{ order.pick }}</p>
-  
+
     <h3>Items Ordered:</h3>
     <ul>
       <li *ngFor="let item of order.items">
@@ -14,4 +19,3 @@
       </li>
     </ul>
   </div>
-  

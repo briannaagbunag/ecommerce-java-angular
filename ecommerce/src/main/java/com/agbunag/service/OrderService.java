@@ -2,6 +2,7 @@ package com.agbunag.service;
 
 import com.agbunag.model.Order;
 import com.agbunag.model.OrderItems;
+import java.util.List;
 
 public interface OrderService {
 
@@ -24,4 +25,6 @@ public interface OrderService {
     Order getCartByCustomerId(int customerId);
     void clearCart(int customerId);
     Order generateAndSaveInvoice(Order order);
+
+    List<Order> getPurchasedOrdersByCustomerId(int customerId);
 }

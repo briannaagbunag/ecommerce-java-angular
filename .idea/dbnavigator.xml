@@ -41,6 +41,9 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="42c1fa71-5194-420d-8ddc-d3875fabdc28" dataset="ecom.product_data" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="42c1fa71-5194-420d-8ddc-d3875fabdc28" dataset="ecom.customer_data" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="42c1fa71-5194-420d-8ddc-d3875fabdc28" dataset="ecom.order_items" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="42c1fa71-5194-420d-8ddc-d3875fabdc28" dataset="ecom.orders" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -573,5 +576,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>
